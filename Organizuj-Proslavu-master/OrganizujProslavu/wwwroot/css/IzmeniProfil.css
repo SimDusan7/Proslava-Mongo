@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+h1{
+    color: #cacaca;
+    font-weight: 100;
+    font-family: Roboto;
+}
+
+h3{
+    font-weight: 400;
+}
+
+#button1{
+    background: none;
+    border: 1px solid #1ECD97;
+    border-radius: 25px;
+    color: #1ECD97;
+    padding: 10px 25px 10px 25px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+#button1:hover{
+    background: #1ECD97;
+    color: white;
+}
+.cancel{
+    background: none;
+    border: 1px solid #F44336;
+    border-radius: 25px;
+    color: #F44336;
+    padding: 10px 25px 10px 25px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.cancel:hover{
+    background: #F44336;
+    color: white;
+}
+.form-control{
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #E5E5E5;
+    font-family: Roboto;
+    font-weight: 300;
+}
+.col-lg-3{
+    font-family: Roboto;
+    font-weight: 300;
+}
+.view-profile{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background: none;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    color: #cccccc;
+    padding: 5px 15px 5px 15px;
+    font-family: Roboto;
+    transition: 0.2s;
+}
+.view-profile:hover{
+    background: #cccccc;
+    color: white;
+}
+@media only screen and (max-width: 991px){
+    .col-md-8{
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width: 1199px){
+    .personal-info{
+        display: grid;
+        place-items: center;
+        text-align: center;
+    }
+    .form-group{
+        width: 80%;
+        display: grid;
+        place-items: center;
+    }
+    h3{
+        padding-top: 15px;
+    }
+    .col-xl-3{
+        display: grid;
+        place-items: center;
+    }
+    .text-center{
+        width: 300px;
+    }
+}

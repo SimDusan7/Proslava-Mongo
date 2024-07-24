@@ -1,0 +1,267 @@
+﻿@page
+@model IndexModel
+@using Microsoft.AspNetCore.Identity
+@using OrganizujProslavu.Areas.Identity.Data
+@using System.Security.Claims
+
+@inject SignInManager<Korisnik> SignInManager
+@inject UserManager<Korisnik> UserManager
+@{
+
+    ViewData["Title"] = "Pocetna";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Organizuj Proslavu</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/HomePage.css" />
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img height="50px" width="50px" src="~/Pictures/Logo.png" /> </a>
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse" style="text-align: center;">
+                    <ul class="navbar-nav">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil">Moj profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-res" class="nav-link text-dark" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije">Moje Rezervacije</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi">Moji oglasi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi">Napravi oglas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                        <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil">Moj Profil</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-res" class="nav-link text-dark" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije">Moje Rezervacije</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi">Moji oglasi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi">Napravi oglas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                        <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                                    </form>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link reg btn btn-outline-success" id="register" asp-area="Identity" asp-page="/Account/Register">Registruj se</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light btn btn-success" id="login" asp-area="Identity" asp-page="/Account/Login">Prijavi se</a>
+                            </li>
+                        }
+                    </ul>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Početna</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="mobileNav" class="menu-overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a id="manage" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil" onclick="closeNav()">Profil</a>
+                        <a id="my-res" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije" onclick="closeNav()">Moje Rezervacije</a>
+                        <a id="my-adv" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi" onclick="closeNav()">Moji oglasi</a>
+                        <a id="my-adv" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi" onclick="closeNav()">Napravi oglas</a>
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                            <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a id="manage" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil" onclick="closeNav()">Profil</a>
+                        <a id="my-res" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije" onclick="closeNav()">Moje Rezervacije</a>
+                        <a id="my-adv" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi" onclick="closeNav()">Moji oglasi</a>
+                        <a id="my-adv" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi" onclick="closeNav()">Napravi oglas</a>
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                            <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                        </form>
+
+                    }
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Register" onclick="closeNav()">Registruj se</a>
+                    <a asp-area="Identity" asp-page="/Account/Login" onclick="closeNav()">Prijavi se</a>
+                }
+            </div>
+        </div>
+        <span class="mobile-menu" onclick="openNav()"><ion-icon name="menu-outline"></ion-icon></span>
+        <script>
+            function openNav() {
+                document.getElementById("mobileNav").style.height = "100%";
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeNav() {
+                document.getElementById("mobileNav").style.height = "0%";
+                document.body.style.overflow = 'visible';
+            }
+        </script>
+    </header>
+    <div class="container-fluid">
+        <div id="layer" class="row hero">
+            <div class="col-xl-6 left-side">
+                <div class="text-box">
+                    <h1>Organizuj <br> <span>Proslavu</span></h1>
+                    <p>Pronađite najlepše mesto i idealnu muziku za svoju proslavu!</p>
+                    <a href="#search"><button class="btn">Pretraži</button></a>
+                </div>
+            </div>
+            <div class="col-xl-6 right-side">
+                <img class="main-picture" src="~/Pictures/Pocetnaf.jpg" alt="Image">
+                <img id="object1" class="particle" src="~/Pictures/Particle.png" alt="Particle">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid catalog">
+        <form class="row" id="formID" method="get">
+            <div id="search" class="container search-box">
+                <div class="filter" style="display:flex; flex-place-items: center;">
+                    <select class="form-control" asp-for="@Model.TipOglasaFilter" asp-items="@Model.TipOglasa" id="TipOglasa">
+                        <option value="" selected disabled hidden>Tip oglasa</option>
+                        <option value="">Svi</option>
+                    </select>
+                    <select class="form-control" asp-for="@Model.SortirajPoFilter" asp-items="@Model.SortirajPo" id="SortirajPo">
+                        <option value="" selected disabled hidden>Sortiraj</option>
+                    </select>
+                    <input type="text" class="form-control" asp-for="@Model.FilterIme" /><button class="btn btn-outline-primary search" type="submit"><ion-icon name="search-outline" style="vertical-align: -2px;"></ion-icon> Pretraži</button>
+                </div>
+            </div>
+            @if (@Model.Oglasi.Count == 0)
+            {
+                <div class="container">
+                    <div class="row bez-oglasa">
+                        <a class="text-muted" asp-page="./NapraviOglas">
+                            <h4 class="obavestenje"><ion-icon name="add-circle-outline"></ion-icon> Trenutno nema oglasa! Napravi novi oglas</h4>
+                        </a>
+                        <div class="col-4"><img src="~/Pictures/search.svg" alt="Not found"></div>
+                    </div>
+                </div>
+            }
+        </form>
+
+        <form method="post">
+            <div class="container">
+                <div class="row lista-oglasa">
+                    @foreach (var oglas in @Model.Oglasi)
+                    {
+
+                        var photoPath = "~/imagesOglasi/" + (oglas.NaslovnaSlika ?? "Objekat.png");
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <a class="text-dark" asp-route-Id="@oglas.Id" asp-page="/ProfilOglasa"> <img class="card-img-top" src="@photoPath" alt="Card image cap" asp-append-version="true" /><h5 class="card-header">@oglas.Naziv</h5></a>
+
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <button type="button" class="delete btn btn-outline-danger" data-toggle="modal" data-target="#a_@oglas.Id"><ion-icon name="trash-outline" style="vertical-align:-2px;"></ion-icon></button>
+                                    }
+                                }
+                                <div class="card-body">
+                                    <h5 class="card-title">@oglas.TipOglasa</h5>
+                                    <p class="card-text desc">@oglas.Opis</p>
+                                    <p class="card-text"><ion-icon name="location-outline"></ion-icon> @oglas.Grad, @oglas.Adresa<br><ion-icon name="call-outline"></ion-icon> @oglas.BrojTelefona</p>
+                                </div>
+
+                                <a asp-route-Id="@oglas.Id" asp-page="/ProfilOglasa" style="text-align: center;padding-bottom: 20px;">
+                                    <button class="more-btn btn" type="button">Više <ion-icon name="chevron-forward-circle-outline" style="vertical-align: text-bottom; font-size: 18px;"></ion-icon></button>
+                                </a>
+
+                                <div class="modal fade" id="a_@oglas.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Obriši oglas</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Da li zelite da uklonite oglas: @oglas.Naziv?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ponisti</button>
+                                                <button type="submit" id="Obrisibtn" class="btn btn-primary" asp-route-Id="@oglas.Id" asp-page-handler="ObrisiOglas">Obrisi oglas</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="row">
+            <p>Sva prava zadržana</p><br>
+            <p>&copy; 2024 - Organizuj Proslavu </p>
+        </div>
+    </div>
+
+    <script>
+        var object1 = $('#object1');
+        var layer = $('#layer');
+
+        layer.mousemove(function (e) {
+            var valueX = (e.pageX * -1 / 25);
+            var valueY = (e.pageY * -1 / 25);
+
+            object1.css({
+                'transform': 'translate(' + valueX + 'px,' + valueY + 'px)'
+            });
+        });
+
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>

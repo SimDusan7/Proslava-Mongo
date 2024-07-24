@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+.sadrzaj{
+    padding-bottom: 45px;
+}
+.sadrzaj h1{
+    color: #cacaca;
+    font-weight: 100;
+    font-family: Roboto;
+}
+h2, h3{
+    font-size: 28px;
+    font-weight: 400;
+}
+h2{
+    padding-bottom: 15px;
+}
+.col-lg-4{
+    margin-bottom: 30px;
+}
+.card{
+    width: 18rem; 
+    margin:auto;
+}
+.card-img-top
+{
+    height: 250px;
+}
+.more-btn{
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-top: 1px solid #DFDFDF;
+    padding: 10px;
+    transition: 0.2s;
+}
+.more-btn:hover{
+    background: #8c8c8c;
+    color: white;
+}
+.text-dark{
+    text-decoration: none !important;
+}
+.card-title
+{
+    color: #8c8c8c;
+}
+.desc
+{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.form-control:disabled{
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #E5E5E5;
+    font-family: Roboto;
+    font-weight: 300;
+}
+.col-lg-3{
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 991px){
+    h2{
+        text-align: center;
+    }
+    .col-md-8{
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1199px){
+    .personal-info{
+        display: grid;
+        place-items: center;
+        text-align: center;
+    }
+    .form-group{
+        width: 80%;
+        display: grid;
+        place-items: center;
+    }
+    .col-xl-3{
+        display: grid;
+        place-items: center;
+    }
+    .text-center{
+        width: 300px;
+    }
+}

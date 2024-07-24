@@ -1,0 +1,45 @@
+.card
+{
+    width: 18rem; 
+    margin:auto;
+}
+.col-sm-4
+{
+    margin-bottom: 30px;
+}
+h1{
+    color: #cacaca;
+    font-weight: 100;
+}
+.obavestenje{
+    font-family: Roboto !important;
+    font-size: 36px;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 160px;
+}
+.ribbon{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 85px 85px 0 0;
+    border-color: #b90e0eaf transparent transparent transparent;
+    position: absolute;
+}
+.ribbon-notify{
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: -70px;
+    left: 12px;
+}
+.otkazano
+{
+    color: #b90e0eaf;
+    font-weight: bold;
+    text-align: center;
+}
+.rating
+{
+    text-align: center;
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model OrganizujProslavu.Pages.OglasiKorisnikaModel
+@{
+}
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<form method="post">
+
+    <link rel="stylesheet" href="~/css/MojiOglasi.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
+    <div class="container sadrzaj">
+        <h1>Moji oglasi</h1>
+        <hr>
+        @if (@Model.Oglasi.Count == 0)
+        {
+            <a class="text-dark" asp-page="./NapraviOglas">
+                <h5 class="obavestenje"> <ion-icon name="add-circle-outline"></ion-icon> Trenutno nemate oglasa! Napravite oglas</h5>
+            </a>
+        }
+        <div class="row">
+            @foreach (var oglas in @Model.Oglasi)
+            {
+                var photoPath = "~/imagesOglasi/" + (oglas.NaslovnaSlika ?? "Objekat.png");
+                <div class="col-lg-4">
+                    <div class="card">
+                        @if (oglas.NoveRezervacije == true)
+                        {
+                            <div class="ribbon">
+                                <ion-icon class="ribbon-notify" name="alert-circle-outline" title="Imate nove rezervacije!"></ion-icon>
+                            </div>
+                        }
+                        <a class="text-dark" asp-route-Id="@oglas.Id" asp-page="/ProfilOglasa"> <img class="card-img-top" src="@photoPath" alt="Card image cap" asp-append-version="true" /><h5 class="card-header">@oglas.Naziv</h5> </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@oglas.TipOglasa</h5>
+                            <p class="card-text desc">@oglas.Opis</p>
+                            <p class="card-text"><ion-icon name="location-outline"></ion-icon> @oglas.Grad, @oglas.Adresa<br><ion-icon name="call-outline"></ion-icon> @oglas.BrojTelefona</p>
+                            <a class="btn btn-outline-primary" asp-page="/IzmeniOglas" asp-route-Id="@oglas.Id"><ion-icon name="create-outline" style="vertical-align:-2px; font-size:20px;"></ion-icon></a><button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#a_@oglas.Id"><ion-icon name="trash-outline" style="vertical-align:-2px;"></ion-icon></button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal box za Obrisi korisnika -->
+                <div class="modal fade" id="a_@oglas.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Obrisite oglas</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Ovim cete obrisati sve rezervisane termine i karakteristike.
+                                Da li zelite da obrisite oglas @oglas.Naziv?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ponisti</button>
+                                <button type="submit" class="btn btn-primary" id="Obrisibtn" asp-route-Id="@oglas.Id" asp-page-handler="ObrisiOglas">Obrisi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</form>

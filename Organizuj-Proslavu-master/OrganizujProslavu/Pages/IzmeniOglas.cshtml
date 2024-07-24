@@ -1,0 +1,544 @@
+﻿@page
+@model OrganizujProslavu.Pages.IzmeniOglasModel
+@{
+    var wifi = 0;
+    var klima = 0;
+    var grejanje = 0;
+    var bazen = 0;
+    var parking = 0;
+    var playStation = 0;
+    var poligonZaIgranje = 0;
+    var drustveneIgra = 0;
+
+    ViewData["Title"] = "Izmeni oglas";
+}
+@using System.Collections.Generic
+
+<link rel="stylesheet" href="~/css/IzmeniOglas.css">
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<div class="container sadrzaj">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="@Model.Oglas.Id" hidden />
+        <input asp-for="@Model.Oglas.TipOglasa" hidden />
+        <h1>Izmeni oglas</h1>
+        <hr>
+        <label class="tip-oglasa">@Model.Oglas.TipOglasa</label>
+        <br />
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Naziv oglasa: </label>
+            <input type="text" class="form-control" asp-for="@Model.Oglas.Naziv" />
+        </div>
+        @if (@Model.Oglas.BrojGosta != null)
+        {
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Broj gosta: </label>
+                <input type="number" min="0" class="form-control" asp-for="@Model.Oglas.BrojGosta" />
+            </div>
+        }
+        @if (@Model.Oglas.BrojClanova != null)
+        {
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Broj članova: </label>
+                <label for="exampleFormControlInput1" id="brClanova">@Model.Oglas.BrojClanova </label>
+                <input id="broj" asp-for="@Model.Oglas.BrojClanova" hidden />
+                <br />
+                <button onclick="dodajClana()" type="button" class="btn btn-outline-dark" value="CREATE" id="btnNoOfRec" style="margin-top: 5px;">Dodaj člana</button>
+                <table>
+                    <thead style="color: #8c8c8c;">
+                    <th>Ime i prezime</th>
+                    <th>Instrument</th>
+                    </thead>
+                    <tbody id="tbody">
+
+                        @for (int i = 0; i < Model.ClanoviBenda.Count; i++)
+                        {
+                            var a = i + 1;
+                            <tr>
+                                <td><input type="text" id="@a" class="form-control" asp-for="@Model.ClanoviBenda[i].Ime" disabled></td>
+                                <td><input type="text" id="a_@a" class="form-control" asp-for="@Model.ClanoviBenda[i].Instrument" disabled></td>
+                                <td> <button type="submit" onclick="obrisi(@a,this)" asp-route-IdClan="@Model.ClanoviBenda[i].Id" asp-route-Id="@Model.Oglas.Id"asp-page-handler="ObrisiClana" class="btn btn-outline-dark" style="margin-top: 5px;"><ion-icon name="trash-outline" style="vertical-align:-2px;"></ion-icon></button></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <label>Vrsta muzike: </label>
+                <input type="text" class="form-control" asp-for="@Model.Oglas.VrstaMuzike">
+            </div>
+        }
+        @if (@Model.Oglas.BrojDece != null)
+        {
+            <div class="form-group">
+                <label>Broj dece: </label>
+                <input type="number" min="0" class="form-control" asp-for="@Model.Oglas.BrojDece" />
+            </div>
+        }
+        <div class="form-group">
+            <label>Opis:</label>
+            <textarea class="form-control bend" rows="3" asp-for="@Model.Oglas.Opis" id="opis"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Ulica i broj: </label>
+            <input type="text" class="form-control" asp-for="@Model.Oglas.Adresa" />
+        </div>
+        <div class="form-group">
+            <label>Grad:</label>
+            <input type="text" class="form-control" asp-for="@Model.Oglas.Grad" />
+        </div>
+        @if (@Model.Oglas.TipOglasa != "Bend")
+        {
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Radno vreme od:</label>
+                <input type="number" min="0" max="23" class="form-control" asp-for="@Model.Oglas.Od">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Radno vreme do:</label>
+                <input type="number" min="1" max="24" class="form-control" asp-for="@Model.Oglas.Do">
+            </div>
+        }
+        <div class="form-group">
+            <label>Kontakt telefon:</label>
+            <input type="number" class="form-control" asp-for="@Model.Oglas.BrojTelefona" />
+        </div>
+        @if (@Model.Oglas.TipOglasa != "Bend")
+        {
+            <label>Karakteristike:</label>
+            <div id="Karakteristike">
+                @if (@Model.Oglas.TipOglasa == "Restoran")
+                {
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        var r = karakteristika.Naziv + "IsChecked";
+                        @if (karakteristika.Naziv == "Wifi" || karakteristika.Naziv == "Klima" || karakteristika.Naziv == "Grejanje" || karakteristika.Naziv == "Bazen" || karakteristika.Naziv == "Parking")
+                        {
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" onclick="proveri(this)" class="custom-control-input" name="@r" id="@karakteristika.Naziv" checked>
+                                <label class="custom-control-label" for="@karakteristika.Naziv">@karakteristika.Naziv</label>
+
+                                <input value="@karakteristika.Naziv" id="a_@karakteristika.Naziv" name="VecPostojece" hidden />
+                            </div>
+                        }
+                    }
+
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        @if (karakteristika.Naziv == "Wifi")
+                        {
+                            wifi = 1;
+                        }
+                        if (karakteristika.Naziv == "Klima")
+                        {
+                            klima = 1;
+                        }
+                        if (karakteristika.Naziv == "Grejanje")
+                        {
+                            grejanje = 1;
+                        }
+                        if (karakteristika.Naziv == "Bazen")
+                        {
+                            bazen = 1;
+                        }
+                        if (karakteristika.Naziv == "Parking")
+                        {
+                            parking = 1;
+                        }
+
+                    }
+
+                    @if (wifi == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="Wifi">
+                            <label class="custom-control-label" for="Wifi">Wifi</label>
+                        </div>
+                    }
+                    @if (klima == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="KlimaIsChecked" id="Klima">
+                            <label class="custom-control-label" for="Klima">Klima</label>
+                        </div>
+                    }
+                    @if (grejanje == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="Grejanje">
+                            <label class="custom-control-label" for="Grejanje">Grejanje</label>
+                        </div>
+                    }
+                    @if (bazen == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.BazenIsChecked" id="Bazen">
+                            <label class="custom-control-label" for="Bazen">Bazen</label>
+                        </div>
+                    }
+                    @if (parking == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.ParkingIsChecked" id="Parking">
+                            <label class="custom-control-label" for="Parking">Parking</label>
+                        </div>
+                    }
+                }
+
+                @if (@Model.Oglas.TipOglasa == "Kafic" || @Model.Oglas.TipOglasa == "Bar")
+                {
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        var r = karakteristika.Naziv + "IsChecked";
+                        @if (karakteristika.Naziv == "Wifi" || karakteristika.Naziv == "Klima" || karakteristika.Naziv == "Grejanje")
+                        {
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" onclick="proveri(this)" class="custom-control-input" name="@r" id="@karakteristika.Naziv" checked>
+                                <label class="custom-control-label" for="@karakteristika.Naziv">@karakteristika.Naziv</label>
+
+                                <input value="@karakteristika.Naziv" id="a_@karakteristika.Naziv" name="VecPostojece" hidden />
+                            </div>
+
+                        }
+                    }
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        @if (karakteristika.Naziv == "Wifi")
+                        {
+                            wifi = 1;
+                        }
+                        if (karakteristika.Naziv == "Klima")
+                        {
+                            klima = 1;
+                        }
+                        if (karakteristika.Naziv == "Grejanje")
+                        {
+                            grejanje = 1;
+                        }
+
+                    }
+
+                    @if (wifi == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="Wifi">
+                            <label class="custom-control-label" for="Wifi">Wifi</label>
+                        </div>
+                    }
+                    @if (klima == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="Klima">
+                            <label class="custom-control-label" for="Klima">Klima</label>
+                        </div>
+                    }
+                    @if (grejanje == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="Grejanje">
+                            <label class="custom-control-label" for="Grejanje">Grejanje</label>
+                        </div>
+
+                    }
+                }
+                @if (@Model.Oglas.TipOglasa == "Kafana")
+                {
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        var r = karakteristika.Naziv + "IsChecked";
+                        @if (karakteristika.Naziv == "Wifi" || karakteristika.Naziv == "Klima" || karakteristika.Naziv == "Grejanje" || karakteristika.Naziv == "Parking")
+                        {
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" onclick="proveri(this)" class="custom-control-input" name="@r" id="@karakteristika.Naziv" checked>
+                                <label class="custom-control-label" for="@karakteristika.Naziv">@karakteristika.Naziv</label>
+
+                                <input value="@karakteristika.Naziv" id="a_@karakteristika.Naziv" name="VecPostojece" hidden />
+                            </div>
+
+                        }
+                    }
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        @if (karakteristika.Naziv == "Wifi")
+                        {
+                            wifi = 1;
+                        }
+                        if (karakteristika.Naziv == "Klima")
+                        {
+                            klima = 1;
+                        }
+                        if (karakteristika.Naziv == "Grejanje")
+                        {
+                            grejanje = 1;
+                        }
+                        if (karakteristika.Naziv == "Parking")
+                        {
+                            parking = 1;
+                        }
+
+                    }
+
+                    @if (wifi == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="Wifi">
+                            <label class="custom-control-label" for="Wifi">Wifi</label>
+                        </div>
+                    }
+                    @if (klima == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="Klima">
+                            <label class="custom-control-label" for="Klima">Klima</label>
+                        </div>
+                    }
+                    @if (grejanje == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="Grejanje">
+                            <label class="custom-control-label" for="Grejanje">Grejanje</label>
+                        </div>
+                    }
+                    @if (parking == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.ParkingIsChecked" id="Parking">
+                            <label class="custom-control-label" for="Parking">Parking</label>
+                        </div>
+                    }
+                }
+                @if (@Model.Oglas.TipOglasa == "Igraonica")
+                {
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        var r = karakteristika.Naziv + "IsChecked";
+                        @if (karakteristika.Naziv == "Wifi" || karakteristika.Naziv == "Klima" || karakteristika.Naziv == "Grejanje" || karakteristika.Naziv == "PlayStation" || karakteristika.Naziv == "DrustveneIgre" || karakteristika.Naziv == "PoligoniZaIgranje")
+                        {
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" onclick="proveri(this)" class="custom-control-input" name="@r" id="@karakteristika.Naziv" checked>
+                                <label class="custom-control-label" for="@karakteristika.Naziv">@karakteristika.Naziv</label>
+
+                                <input value="@karakteristika.Naziv" id="a_@karakteristika.Naziv" name="VecPostojece" hidden />
+                            </div>
+
+                        }
+                    }
+                    @foreach (var karakteristika in @Model.Karakteristike)
+                    {
+                        @if (karakteristika.Naziv == "Wifi")
+                        {
+                            wifi = 1;
+                        }
+                        if (karakteristika.Naziv == "Klima")
+                        {
+                            klima = 1;
+                        }
+                        if (karakteristika.Naziv == "PlayStation")
+                        {
+                            playStation = 1;
+                        }
+                        if (karakteristika.Naziv == "DrustveneIgre")
+                        {
+                            drustveneIgra = 1;
+                        }
+                        if (karakteristika.Naziv == "PoligoniZaIgranje")
+                        {
+                            poligonZaIgranje = 1;
+                        }
+
+                    }
+
+                    @if (wifi == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="Wifi">
+                            <label class="custom-control-label" for="Wifi">Wifi</label>
+                        </div>
+                    }
+                    @if (klima == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="Klima">
+                            <label class="custom-control-label" for="Klima">Klima</label>
+                        </div>
+                    }
+                    @if (grejanje == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="Grejanje">
+                            <label class="custom-control-label" for="Grejanje">Grejanje</label>
+                        </div>
+                    }
+                    @if (playStation == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.PlayStationIsChecked" id="PlayStation">
+                            <label class="custom-control-label" for="PlayStation">PlayStation</label>
+                        </div>
+                    }
+                    @if (poligonZaIgranje == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.PoligoniZaIgranjeIsChecked" id="PoligoniZaIgranje">
+                            <label class="custom-control-label" for="PoligoniZaIgranje">Poligoni za igranje</label>
+                        </div>
+                    }
+                    @if (drustveneIgra == 0)
+                    {
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" asp-for="@Model.DrustveneIgreIsChecked" id="DrustveneIgre">
+                            <label class="custom-control-label" for="DrustveneIgre">Drustvene igre</label>
+                        </div>
+                    }
+                }
+            </div><br />
+        }
+
+
+        <div class="row thumbnails">
+            <input id="naslovna" asp-for="@Model.Oglas.NaslovnaSlika" hidden>
+            @for (var i = 0; i < @Model.SlikeOglasa.Count; i++)
+            {
+                var photoPath = "~/imagesOglasi/" + @Model.SlikeOglasa[i].PhotoPath;
+                <img src="@photoPath" style="width:100px; height:100px;" asp-append-version="true">
+                <button type="button" class="delete" data-toggle="modal" data-target="#a_@Model.SlikeOglasa[i].Id"> <ion-icon name="trash-outline"></ion-icon> </button>
+                <button type="button" class="postavi" data-toggle="modal" data-target="#b_@Model.SlikeOglasa[i].Id"><ion-icon name="image-outline"></ion-icon> </button>
+
+                <!-- Modal box za brisanje slike -->
+                <div class="modal fade" id="a_@Model.SlikeOglasa[i].Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Obrišite sliku</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Da li želite da obrišete sliku iz oglasa?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Poništi</button>
+                                <button type="submit" class="btn btn-primary"  asp-route-IdSlike="@Model.SlikeOglasa[i].Id" asp-route-Id="@Model.Oglas.Id" asp-page-handler="ObrisiSliku">Obriši sliku</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal box za naslovnu sliku -->
+                <div class="modal fade" id="b_@Model.SlikeOglasa[i].Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Postavi naslovnu fotografiju</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Da li želite da postavite ovu fotografiju za naslovnu?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Poništi</button>
+                                <button type="submit" class="btn btn-primary" onclick="zameni('@Model.SlikeOglasa[i].PhotoPath')" asp-route-Id="@Model.Oglas.Id" asp-page-handler="Sacuvaj">Postavi za naslovnu</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Dodajte vaše fotografije:</label><br />
+            <input type="file" class="form-control" style="width:250px;" multiple="multiple" name="photos" accept="image/*" />
+        </div>
+
+        <div class="form-group">
+            <button class="sacuvaj" id="savucajbtn" type="submit" asp-route-Id="@Model.Oglas.Id" asp-page-handler="Sacuvaj">Sačuvaj</button>
+        </div>
+
+        <script src="~/temp/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript">
+            function zameni(a)
+            {
+             var z=  document.getElementById("naslovna");
+             z.setAttribute("value",a);
+            };
+
+        </script>
+        <script>
+    function proveri(c)
+    {
+        if(!c.checked)
+        {
+            var a = "a_"+c.id;
+            document.getElementById(a).value="";
+        }
+        if(c.checked)
+        {
+            var a = "a_"+c.id;
+            document.getElementById(a).value=c.id;
+        }
+    }
+
+
+        </script>
+
+        <script>
+        function dodajClana()
+        {
+            var brGosta= document.getElementById('brClanova').innerHTML;
+            brGosta++;
+            document.getElementById('brClanova').innerHTML=brGosta;
+
+            var broj = document.getElementById('broj');
+            broj.value = brGosta;
+
+            var tbl="";
+           tbl+= "<tr>"+
+            "<td>"+
+            "<input type='text' id='"+brGosta+"' class="+"form-control"+" name='ListaImenaClanova' />"+
+            "</td>"+
+           "<td>"+
+           "<input type='text' id='a_"+brGosta+"' class="+"form-control"+" name='ListaImenaInstrumenata'/>"+
+           "</td>"+
+          " <td>"+
+            " <button type='button' onclick='obrisi("+brGosta+",this)' class='btn btn-outline-dark' style='margin-top: 5px;'><ion-icon name='trash-outline' style='vertical-align:-2px;'></ion-icon></button>"+
+            "</td>"+
+            "</tr>";
+
+           $('#tbody').append(tbl);
+
+        }
+
+        function obrisi(idGosta,dugme)
+        {
+            var brGosta= document.getElementById('brClanova').innerHTML;
+            brGosta--;
+            document.getElementById('brClanova').innerHTML=brGosta;
+
+            var broj = document.getElementById('broj');
+            broj.value = brGosta;
+
+
+            var ime = document.getElementById(idGosta);
+            var instrument = document.getElementById("a_"+idGosta);
+
+           // ime.value = "";
+            ime.setAttribute('id',"obrisano");
+            //instrument.value ="";
+            instrument.setAttribute('id',"obrisan");
+            ime.hidden = true;
+
+            instrument.hidden = true;
+            dugme.hidden = true;
+
+            console.log(ime);
+            console.log(instrument);
+
+        }
+        </script>
+        <script src="~/temp/jquery-3.4.1.min.js"></script>
+        <script src="~/temp/toastr.min.js"></script>
+    </form>
+</div>

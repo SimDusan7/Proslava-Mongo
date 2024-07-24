@@ -1,0 +1,100 @@
+﻿@page
+@model IndexModel
+@{
+    var photoPath = "~/images/" + (Model.Korisnik.Slika ?? "Lice.png");
+
+    ViewData["Title"] = "Profil korisnika";
+}
+
+<link rel="stylesheet" href="~/css/ProfilKorisnika.css">
+<link rel="stylesheet" href="~/temp/toastr.min.css">
+<form method="post" enctype="multipart/form-data">
+    <div class="container sadrzaj">
+
+        <h1>Profil Korisnika</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-xl-3">
+                <div class="text-center">
+                    <img src="@photoPath" class="avatar img-circle" alt="avatar" asp-append-version="true" style="border-radius: 5%; width: 260px; height:260px; padding-bottom:10px">
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-xl-9 personal-info">
+
+                @* <input hidden asp-for="@Model.Korisnik.Id" /> *@
+                <input hidden asp-for="@Model.Korisnik.Slika" />
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Korisničko ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.UserName" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.Ime" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prezime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.Prezime" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.Email" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Grad:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.Grad" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Broj telefona:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Korisnik.PhoneNumber" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (@Model.Oglasi.Count > 0)
+        {
+            <h1>Oglasi korisnika</h1>
+            <hr>
+            <div class="row">
+                @foreach (var oglas in @Model.Oglasi)
+                {
+                   photoPath = "~/imagesOglasi/" + (oglas.NaslovnaSlika ?? "Objekat.png");
+                    <div class="col-lg-4">
+                        <div class="card">
+
+                            <a class="text-dark" asp-route-Id="@oglas.Id" asp-page="/ProfilOglasa"> <img class="card-img-top" src="@photoPath" alt="Card image cap" asp-append-version="true" /><h5 class="card-header">@oglas.Naziv</h5> </a>
+                            <div class="card-body">
+
+                                <h5 class="card-title">@oglas.TipOglasa</h5>
+                                <p class="card-text desc">@oglas.Opis</p>
+                                <p class="card-text"><ion-icon name="location-outline"></ion-icon> @oglas.Grad, @oglas.Adresa</p>
+
+                            </div>
+
+                            <a asp-route-Id="@oglas.Id" asp-page="/ProfilOglasa">
+                                <button class="more-btn" type="button">Više <ion-icon name="chevron-forward-circle-outline" style="vertical-align: text-bottom; font-size: 18px;"></ion-icon></button>
+                            </a>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</form>
+

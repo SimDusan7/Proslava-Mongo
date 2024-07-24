@@ -1,0 +1,467 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using OrganizujProslavu.Areas.Identity.Data
+@using System.Security.Claims
+@model OrganizujProslavu.Pages.ProfilOglasaModel
+@{
+
+    ViewData["Title"] = "Profil oglasa";
+    var id = Model.Oglas.Id.ToString();
+}
+@inject SignInManager<Korisnik> SignInManager
+@inject UserManager<Korisnik> UserManager
+
+<link rel="stylesheet" href="~/css/ProfilOglasa.css">
+<link rel="stylesheet" href="~/temp/jquery-ui.css">
+<link rel="stylesheet" href="~/temp/toastr.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css">
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <h2 class="naslov-oglasa">@Model.Oglas.Naziv</h2>
+            <h4 class="tip-oglasa">@Model.Oglas.TipOglasa</h4>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+
+                <!-- Container for the image gallery -->
+                <div class="container">
+
+
+                    <!-- Full-width images with number text -->
+                    @if (@Model.SlikeOglasa.Count == 0)
+                    {
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 1</div>
+                            @if (@Model.Oglas.TipOglasa == "Bend")
+                            {
+                                <img src="~/imagesOglasi/bend.png" style="width:100%; height:400px;" asp-append-version="true">
+                            }
+                            else
+                            {
+                                <img src="~/imagesOglasi/Objekat.png" style="width:100%; height:400px;" asp-append-version="true">
+                            }
+                        </div>
+                    }
+                    @for (var i = 0; i < @Model.SlikeOglasa.Count; i++)
+                    {
+                        var photoPath = "~/imagesOglasi/" + (@Model.SlikeOglasa[i].PhotoPath ?? "Objekat.png");
+                        var br = i + 1;
+                        <div class="mySlides">
+                            <div class="numbertext">@br / @Model.SlikeOglasa.Count</div>
+                            <img src="@photoPath" style="width:100%; height:400px;" asp-append-version="true">
+                        </div>
+                    }
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <!-- Thumbnail images -->
+                    <div class="row thumbnails">
+                        @if (@Model.SlikeOglasa.Count == 0)
+                        {
+                            <div class="column">
+                                @if (@Model.Oglas.TipOglasa == "Bend")
+                                {
+                                    <img class="demo cursor" src="~/imagesOglasi/bend.png" style="width:100%; height:75px; " onclick="currentSlide(1)" asp-append-version="true">
+                                }
+                                else
+                                {
+                                    <img class="demo cursor" src="~/imagesOglasi/Objekat.png" style="width:100%; height:75px; " onclick="currentSlide(1)" asp-append-version="true">
+                                }
+                            </div>
+                        }
+                        @for (var i = 0; i < @Model.SlikeOglasa.Count; i++)
+                        {
+                            var br = i + 1;
+                            var photoPath = "~/imagesOglasi/" + (@Model.SlikeOglasa[i].PhotoPath ?? "Lice.png");
+                            <div class="column">
+                                <img class="demo cursor" src="@photoPath" style="width:100%; height:75px;" onclick="currentSlide(@br)" asp-append-version="true">
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div><h5 style="padding-top: 10px;">Opšte informacije:</h5></div>
+                @if (@Model.Oglas.BrojClanova != null)
+                {
+                    <div id="clanovibenda">
+                        <div><h6>Broj članova: <p>@Model.Oglas.BrojClanova</p></h6></div>
+
+                        @if (@Model.ClanoviBenda.Count > 0)
+                        {
+                            <table class="tabela" table table-dark>
+                                <thead>
+                                <th>Članovi <ion-icon name="people-outline" style="font-size: 20px; vertical-align: sub;"></ion-icon></th>
+                                <th>Instument <ion-icon name="musical-note-outline" style="font-size: 20px; vertical-align: sub;"></ion-icon></th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var clan in @Model.ClanoviBenda)
+                                    {
+                                        @if (clan != null)
+                                        {
+                                            <tr>
+                                                <td>@clan.Ime</td>
+                                                <td>@clan.Instrument</td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                    <div><h6>Vrsta muzike: <p>@Model.Oglas.VrstaMuzike</p> </div>
+                }
+
+                @if (@Model.Oglas.BrojGosta != null)
+                {
+                    <div> <h6>Prima do: <p>@Model.Oglas.BrojGosta gosta</p></h6> </div>
+                }
+                @if (@Model.Oglas.BrojDece != null) 
+                {
+                    <div> <h6>Broj dece: <p>@Model.Oglas.BrojDece</p></h6> </div>
+                }
+                <div><h6>Opis: <p>@Model.Oglas.Opis</p></h6></div>
+
+                @if (@Model.Karakteristike.Count > 0)
+                {
+                    <div> <h6>Karakteristike: </h6></div>
+                    <ul style="list-style-type: square;">
+                        @foreach (var karakteristika in @Model.Karakteristike)
+                        {
+                            if (karakteristika.Naziv != null)
+                            {
+                                <li>@karakteristika.Naziv</li>
+                            }
+                        }
+                    </ul>
+                }
+
+                <div><h6><ion-icon name="location-outline"></ion-icon> <p>@Model.Oglas.Grad, @Model.Oglas.Adresa</p></h6></div>
+                <div><h6><ion-icon name="call-outline"></ion-icon> <p>@Model.Oglas.BrojTelefona</p></h6></div>
+                @if (@Model.Oglas.TipOglasa != "Bend")
+                {
+                    <div><h6>Radno vreme: @Model.Oglas.Od h - @Model.Oglas.Do h</h6></div>
+                }
+
+                <hr>
+                <div class="vlasnik">
+                    <h5>Informacije o vlasniku:</h5>
+                    <div>
+                        <h6>
+                            <a  asp-area="Identity" asp-page="/Account/Manage/Index" asp-route-Id="@Model.Oglas.KorisnikId"><ion-icon name="person-outline"></ion-icon> @Model.Korisnik.UserName</a>
+                        </h6>
+                    </div>
+                </div>
+                <div>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        @if (@UserManager.GetUserId(User) != @Model.Oglas.KorisnikId.ToString())
+                        {
+                            <button type="button" onclick="postavi()" class="btn btn-outline-primary rezervisi" data-toggle="modal" data-target="#rezervacija">Rezerviši <ion-icon name="bookmark-outline" style="vertical-align:-2px;"></ion-icon></button>
+                        }
+                        @if (@UserManager.GetUserId(User) == @Model.Oglas.KorisnikId.ToString())
+                        {
+                            <button type="button" class="btn btn-outline-success termin" data-toggle="modal" data-target="#termin"><ion-icon name="add-circle-outline" style="font-size:18px;vertical-align:-3px;"></ion-icon> Dodaj privatni termin</button>
+                        }
+                    }
+                    else
+                    {
+                        <a class="nav-link text-dark" href="/Identity/Account/Login"><p><b>Da bi ste rezervisali vaš termin morate biti prijavljeni!</b></p></a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal box za dodavanje zauzetih termina -->
+        <div class="modal fade" id="termin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Unesi termin - @Model.Oglas.Naziv</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+
+                            <div>Datum: <input autocomplete="off" class="form-control zahtev" type="datetime" id="input_example_2" asp-for="@Model.Termin.ZauzetTermin" required /></div>
+                            <label for="TipProslaveT">Izaberite vrstu proslave: </label>
+                            <select class="form-control zahtev" asp-for="@Model.Termin.TipProslave" asp-items="@Model.TipProslave" id="TipProslaveT" required>
+                                <option value="" selected disabled hidden>Vrsta proslave</option>
+                            </select>
+                            @if (@Model.Oglas.TipOglasa != "Igraonica")
+                            {
+                                <div>Broj gosta: <input class="form-control zahtev" type="number" min="0" max="@Model.Oglas.BrojGosta" asp-for="@Model.Termin.BrojGosta" required /></div>
+                            }
+                            @if (@Model.Oglas.TipOglasa == "Igraonica")
+                            {
+                                <div>Broj dece: <input class="form-control zahtev" type="number" min="0" max="@Model.Oglas.BrojDece" asp-for="@Model.Termin.BrojGosta" required /></div>
+                            }
+                        <div>Trajanje rezervacije (h):<input class="form-control zahtev" type="number" min="1" max="16" asp-for="@Model.Termin.Trajanje" required /> </div>
+                            <div>Opis: <textarea class="form-control" rows="2" id="opist" asp-for="@Model.Termin.Opis"></textarea></div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="otkazi()" class="btn btn-secondary" data-dismiss="modal">Poništi</button>
+                        <button type="submit" onclick="promeni()" id="terminbtn" class="btn btn-primary" asp-route-Id="@Model.Oglas.Id" asp-page-handler="DodajTermin">Dodaj termin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal box za dodavanje rezervacije -->
+        <div class="modal fade ukloni" id="rezervacija" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Rezervisite oglas - @Model.Oglas.Naziv</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+
+                            <div>Datum: <input autocomplete="off" class="form-control zahtev1" type="datetime" id="input_example_3" asp-for="@Model.Rezervacija.Datum" required /></div>
+                            <label for="TipProslaveR">Izaberite tip oglasa: </label>
+                            <select class="form-control zahtev1" asp-for="@Model.Rezervacija.TipProslave" asp-items="@Model.TipProslave" id="TipProslaveR" required>
+                                <option value="" selected disabled hidden>Vrsta proslave</option>
+                            </select>
+                            @if (@Model.Oglas.TipOglasa != "Igraonica")
+                            {
+                                <div>Broj gosta: <input class="form-control zahtev1" type="number" min="0" max="@Model.Oglas.BrojGosta" asp-for="@Model.Rezervacija.BrojGosta" required /></div>
+                            }
+                            @if (@Model.Oglas.TipOglasa == "Igraonica")
+                            {
+                                <div>Broj dece: <input class="form-control zahtev1" type="number" min="0" max="@Model.Oglas.BrojDece" asp-for="@Model.Rezervacija.BrojGosta" required /></div>
+                            }
+                            <div>Trajanje rezervacije (h):<input class="form-control zahtev1" type="number" min="1" max="16" asp-for="@Model.Rezervacija.Trajanje" required /></div>
+                            <div>Opis: <textarea class="form-control" rows="2" id="opis" asp-for="@Model.Rezervacija.Opis"></textarea></div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="otkazi()" class="btn btn-secondary" data-dismiss="modal">Poništi</button>
+                        <button type="submit" onclick="promeni1()" class="btn btn-primary" id="rezervisibtn" asp-route-Id="@Model.Oglas.Id" asp-page-handler="Rezervisi">Rezerviši oglas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container sadrzaj-kalendar">
+            <h3>Pregled termina <ion-icon name="calendar-outline" style="vertical-align: bottom;"></ion-icon></h3>
+            <div class="row">
+                <div class="col-xs-12">
+                    <br />
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @if (@UserManager.GetUserId(User) == @Model.Oglas.KorisnikId.ToString())
+            {
+                <div id="fullCalModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Informacije o rezerviciji</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" />
+                                <span aria-hidden="true">&times;</span>
+                            </div>
+                            <div id="modalBody" class="modal-body"></div>
+                            <div id="modalFooter" class="modal-footer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+
+<script>
+    $('#calendar').fullCalendar({
+      header: {
+        left:'',
+        center:'prev title next',
+        right:'',
+      },
+      eventClick:  function(event,jsEvent, view){
+        var postoji = event.description ?? "";
+        var Samostalni = "";
+        if(event.vlasnik != "Samostalni termin")
+          Samostalni = "<div>Razlog otkazivanja: <textarea class='form-control' rows='2' id='opis' name='Razlog' ></textarea></div>";
+        $('#modalBody').html("Opis: "+postoji+"<br />"+
+        "Vrsta proslave: "+event.tipproslave+"<br />"+
+        "Broj gosta: "+event.brojgosta+"<br />"+
+        "Rezervisao: "+event.vlasnik+"<br />"+
+        "Broj telefona: "+event.broj+"<br />"+
+        Samostalni);
+          $('#modalFooter').html("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Zatvori</button><button type='submit' onclick='otkazi()' id='otkazibtn' class='btn btn-primary' formaction='/ProfilOglasa?IdOglas=@id&IdRez="+event.id+"&handler=OtkaziRezervaciju'>Otkaži rezervaciju</button>")
+        $('#fullCalModal').modal();
+        return false;
+        },
+        events: 'https://localhost:44331/ProfilOglasa?Id=@id&handler=NadjiSveTermine'
+      });
+
+</script>
+<script src="~/temp/jquery-3.4.1.min.js"></script>
+<script>
+     function otkazi() {
+        var r = document.getElementsByClassName("zahtev1");
+        for (var i = 0; i < r.length; i++) {
+            if (r[i].hasAttribute("required")) {
+                r[i].removeAttribute("required");
+            }
+        }
+
+
+        r = document.getElementsByClassName("zahtev");
+        for (var i = 0; i < r.length; i++) {
+            if (r[i].hasAttribute("required")) {
+                r[i].removeAttribute("required");
+            }
+        }
+    }
+    function promeni() {
+        var r = document.getElementsByClassName("zahtev1");
+        for (var i = 0; i < r.length; i++) {
+            if (r[i].hasAttribute("required")) {
+                r[i].removeAttribute("required");
+            }
+        }
+
+        r = document.getElementsByClassName("zahtev");
+        for (var i = 0; i < r.length; i++) {
+            r[i].setAttribute("required", "true");
+        }
+
+    }
+    function promeni1() {
+        var r = document.getElementsByClassName("zahtev");
+        for (var i = 0; i < r.length; i++) {
+            if (r[i].hasAttribute("required")) {
+                r[i].removeAttribute("required");
+            }
+        }
+
+        r = document.getElementsByClassName("zahtev1");
+        for (var i = 0; i < r.length; i++) {
+            r[i].setAttribute("required", "true");
+        }
+    }
+</script>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="~/js/jquery-ui.js"></script>
+<script type="text/javascript" src="~/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript">
+    $('#input_example_2').datetimepicker({
+        altField: "#input_example_2_alt",
+        altFieldTimeOnly: false,
+        dateFormat: 'dd M yy',
+        timeFormat: "HH:mm",
+    });
+    $('#input_example_3').datetimepicker({
+        altField: "#input_example_3_alt",
+        altFieldTimeOnly: false,
+        dateFormat: 'dd M yy',
+        timeFormat: "HH:mm",
+    });
+
+</script>
+
+<script src="~/temp/jquery-3.4.1.min.js"></script>
+<script src="~/temp/toastr.min.js"></script>
+<!-- Toastr notify obavestenja -->
+@if (TempData["Rezervacija"] != null)
+{
+    <script>
+              $('#otkazibtn','#terminbtn','#rezervisibtn').on('click', function()
+              {
+              toastr.options = {
+              }
+              })
+            switch ("@TempData["Rezervacija"]") {
+                case "SuccessO":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.success("Uspesno ste otkazali rezervaciju!", "Potvrda");
+                break;
+                case "Success":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.success("Uspesno ste rezervisali termin!", "Potvrda");
+                break;
+                case "GreskaT":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Termin je vec zauzet!", "Greska");
+                break;
+                case "GreskaKorisnik":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Morate azurirati profil (ime, prezime, broj telefona)!", "Greska");
+                break;
+                case "Greska":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Rezervacija nije pronadjena!", "Greska");
+                break;
+                case "GreskaProslost":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Minimalno zakazivanje je 24h unapred", "Greska");
+                break;
+                case "GreskaRadno":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Rezervacija je van radnog vremena", "Greska");
+                break;
+                case "GreskaRez":
+                toastr.options = {"positionClass": "toast-top-center","timeOut": "5000" }
+                toastr.error("Rezervacija je istekla, ne mozete je otkazati", "Greska");
+                break;
+            }
+
+    </script>
+}

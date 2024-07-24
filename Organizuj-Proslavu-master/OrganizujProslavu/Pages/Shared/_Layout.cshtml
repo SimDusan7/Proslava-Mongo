@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Organizuj Proslavu</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="all" type="text/css" href="~/js/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/pocetna-custom.css" />
+<link rel="stylesheet" media="all" type="text/css" href="~/js/jquery-ui-timepicker-addon.css">
+</head>
+<body class="telo">
+    <header class="gore">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><img height="50px" width="50px" src="~/Pictures/Logo.png"/> </a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Organizuj Proslavu </a>
+              
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex flex-lg-row-reverse" style="text-align: center;">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Početna</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container footer-text">
+            &copy; 2024 - Organizuj Proslavu</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+    <script src="~/js/jquery-ui.js"></script> 
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!---------------------- Kalendar ---------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <!---------- Datatime picker  --------->
+    
+<script type="text/javascript" src="~/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="~/js/jquery-ui-timepicker-addon-i18n.min.js"></script>
+<script type="text/javascript" src="~/js/jquery-ui-sliderAccess.js"></script>
+<script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+@* <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> *@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

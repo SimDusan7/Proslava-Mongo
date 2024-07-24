@@ -1,0 +1,17 @@
+.register-panel{
+    display: grid;
+    place-items: center;
+    height: 80vh;
+}
+h1{
+    align-self: end;
+}
+h4{
+    color: #cacaca;
+    font-weight: 100;
+    text-align: center;
+}
+.row{
+    width: 50%;
+    align-self: start;
+}

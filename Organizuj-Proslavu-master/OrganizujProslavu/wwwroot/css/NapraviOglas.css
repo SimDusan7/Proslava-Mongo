@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.sadrzaj{
+    display: grid;
+    place-items: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+#MyForm{
+    width: 500px;
+    color: #6b6b6b;
+}
+h1{
+    font-family: Roboto;
+    font-weight: 100;
+    color: #cacaca;
+}
+
+@media only screen and (max-width: 540px){
+    #MyForm{
+        width: 100%;
+        padding: 40px 30px;
+    }
+}

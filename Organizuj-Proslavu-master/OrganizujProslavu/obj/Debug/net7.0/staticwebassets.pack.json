@@ -1,0 +1,541 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\.nuget\\packages\\bootstrap\\4.6.0\\contentFiles\\any\\any\\wwwroot\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\Logo.png",
+      "PackagePath": "staticwebassets\\Pictures\\Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\Particle.png",
+      "PackagePath": "staticwebassets\\Pictures\\Particle.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\Pocetna.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\Pocetna.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\Pocetnaf.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\Pocetnaf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\Prva.jpg",
+      "PackagePath": "staticwebassets\\Pictures\\Prva.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\Pictures\\search.svg",
+      "PackagePath": "staticwebassets\\Pictures\\search.svg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\HomePage.css",
+      "PackagePath": "staticwebassets\\css\\HomePage.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\IzmeniOglas.css",
+      "PackagePath": "staticwebassets\\css\\IzmeniOglas.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\IzmeniProfil.css",
+      "PackagePath": "staticwebassets\\css\\IzmeniProfil.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\MojeRezervacije.css",
+      "PackagePath": "staticwebassets\\css\\MojeRezervacije.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\MojiOglasi.css",
+      "PackagePath": "staticwebassets\\css\\MojiOglasi.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\NapraviOglas.css",
+      "PackagePath": "staticwebassets\\css\\NapraviOglas.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\ProfilKorisnika.css",
+      "PackagePath": "staticwebassets\\css\\ProfilKorisnika.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\ProfilOglasa.css",
+      "PackagePath": "staticwebassets\\css\\ProfilOglasa.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\SviOglasi.css",
+      "PackagePath": "staticwebassets\\css\\SviOglasi.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\pocetna-custom.css",
+      "PackagePath": "staticwebassets\\css\\pocetna-custom.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\register.css",
+      "PackagePath": "staticwebassets\\css\\register.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\02695b4d-136c-4e51-aab7-f112cc450cac_meze1.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\02695b4d-136c-4e51-aab7-f112cc450cac_meze1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\05c82598-def0-4a15-bf63-c2167fcc2229_meze.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\05c82598-def0-4a15-bf63-c2167fcc2229_meze.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\0b0ee459-9144-436f-b323-b51ee230d2d3_meze 4.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\0b0ee459-9144-436f-b323-b51ee230d2d3_meze 4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\100a1c54-7ef7-412a-9c64-8e59d4981132_nova-godina-nis-05.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\100a1c54-7ef7-412a-9c64-8e59d4981132_nova-godina-nis-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\14012952-52ed-41f4-8603-f23b64bcde88_abbb8bba-1ee4-4d41-9295-2723bb04c987_kafeterija1.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\14012952-52ed-41f4-8603-f23b64bcde88_abbb8bba-1ee4-4d41-9295-2723bb04c987_kafeterija1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\15d22f0a-4beb-418f-9d0c-fbfbe4786520_download.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\15d22f0a-4beb-418f-9d0c-fbfbe4786520_download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\1931d55d-9315-40d2-9924-80669d535d7b_преузимање.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\1931d55d-9315-40d2-9924-80669d535d7b_преузимање.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\1ed2638e-48f6-45d8-94a2-a30754fe8924_Nemir-Pivnica-Nis-unutra.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\1ed2638e-48f6-45d8-94a2-a30754fe8924_Nemir-Pivnica-Nis-unutra.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\1f1c2c9a-d918-4535-aef3-c5ce1ed1db41_a008667e-80ef-4f1e-9fe3-b0554a149a37_kafeterija.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\1f1c2c9a-d918-4535-aef3-c5ce1ed1db41_a008667e-80ef-4f1e-9fe3-b0554a149a37_kafeterija.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\239fb935-504a-464f-b84d-d1bf8605253b_nemir-pivnica.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\239fb935-504a-464f-b84d-d1bf8605253b_nemir-pivnica.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\2a1aa289-b10a-499d-adec-e52b9e5c17f7_cvetic2.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\2a1aa289-b10a-499d-adec-e52b9e5c17f7_cvetic2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\3acef91a-6042-4897-a9d7-3360731c8fcd_807ae733-aa3d-44ce-8fe3-def973cd5a54_kafeterija2.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\3acef91a-6042-4897-a9d7-3360731c8fcd_807ae733-aa3d-44ce-8fe3-def973cd5a54_kafeterija2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\3b41fd0b-8696-4ac2-8ee7-610b34a7bff2_40b7d857-cf96-4a25-9f17-9f86bba28f98_circus-igraonica-za-decu.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\3b41fd0b-8696-4ac2-8ee7-610b34a7bff2_40b7d857-cf96-4a25-9f17-9f86bba28f98_circus-igraonica-za-decu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\401be799-d7ee-4435-bc40-58b97f336d9f_cvetic.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\401be799-d7ee-4435-bc40-58b97f336d9f_cvetic.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\4bcbb669-b0ac-47b2-8458-6ed0d022d8f3_Riblji-restoran-Kod-Pece-Bajina-Basta-2.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\4bcbb669-b0ac-47b2-8458-6ed0d022d8f3_Riblji-restoran-Kod-Pece-Bajina-Basta-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\52c1516c-b7be-4c65-a1f3-79a5c537ad0c_cvetic1.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\52c1516c-b7be-4c65-a1f3-79a5c537ad0c_cvetic1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\77441175-d4c1-49dd-b28b-d8ac36795afd_unnamed.png",
+      "PackagePath": "staticwebassets\\imagesOglasi\\77441175-d4c1-49dd-b28b-d8ac36795afd_unnamed.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\78669850-ecea-46c3-a1a9-95e465498385_meze3.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\78669850-ecea-46c3-a1a9-95e465498385_meze3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\Objekat.png",
+      "PackagePath": "staticwebassets\\imagesOglasi\\Objekat.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\a008667e-80ef-4f1e-9fe3-b0554a149a37_kafeterija.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\a008667e-80ef-4f1e-9fe3-b0554a149a37_kafeterija.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\a19f0c9d-5aee-4c99-a0f0-64b5cc154f6f_JGPH0430.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\a19f0c9d-5aee-4c99-a0f0-64b5cc154f6f_JGPH0430.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\b100977f-4f3b-4b03-a648-7650b1bd85c9_Screenshot 2024-02-10 131603.png",
+      "PackagePath": "staticwebassets\\imagesOglasi\\b100977f-4f3b-4b03-a648-7650b1bd85c9_Screenshot 2024-02-10 131603.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\bend.png",
+      "PackagePath": "staticwebassets\\imagesOglasi\\bend.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\ccf5fbfc-cb68-4189-a708-352617240148_5ecd19d1-f3ad-4a41-a71d-87a4b9d74c2d_unnamed.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\ccf5fbfc-cb68-4189-a708-352617240148_5ecd19d1-f3ad-4a41-a71d-87a4b9d74c2d_unnamed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\cf5886ed-9519-4d7f-aed1-710722d57656_meze2.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\cf5886ed-9519-4d7f-aed1-710722d57656_meze2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\cff5cad3-ab2a-4db7-ad8b-fcfe1270f5a9_restoran-bolji-zivot-2.png",
+      "PackagePath": "staticwebassets\\imagesOglasi\\cff5cad3-ab2a-4db7-ad8b-fcfe1270f5a9_restoran-bolji-zivot-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\d47b78c9-f872-44b2-9204-950082533da8_mastograd-4.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\d47b78c9-f872-44b2-9204-950082533da8_mastograd-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\d9950dd7-dc08-4c07-9617-f22a82b9bc5a_gastro1.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\d9950dd7-dc08-4c07-9617-f22a82b9bc5a_gastro1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\dd83c2d6-0ccc-491f-9b75-372e787ee740_Various-Prvi-glas-Srbije-97-zabavna-muzika-nove-komp-_slika_O_127524753.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\dd83c2d6-0ccc-491f-9b75-372e787ee740_Various-Prvi-glas-Srbije-97-zabavna-muzika-nove-komp-_slika_O_127524753.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\e0f94470-aece-44c1-910e-d2119424964d_gastro.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\e0f94470-aece-44c1-910e-d2119424964d_gastro.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\imagesOglasi\\ffe8c365-bb8b-4758-a211-b006202289db_преузимање.jpg",
+      "PackagePath": "staticwebassets\\imagesOglasi\\ffe8c365-bb8b-4758-a211-b006202289db_преузимање.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\images\\Lice.png",
+      "PackagePath": "staticwebassets\\images\\Lice.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\images\\a2d0e034-0557-4812-a6a4-fae57a822a27_images.png",
+      "PackagePath": "staticwebassets\\images\\a2d0e034-0557-4812-a6a4-fae57a822a27_images.png"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\images\\aac5840b-ef82-456c-adbf-8a6c13cea7bb_male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg",
+      "PackagePath": "staticwebassets\\images\\aac5840b-ef82-456c-adbf-8a6c13cea7bb_male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\images\\b55d813b-a7c5-4552-ac96-b1516f84b2d4_download.jpg",
+      "PackagePath": "staticwebassets\\images\\b55d813b-a7c5-4552-ac96-b1516f84b2d4_download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\app.js",
+      "PackagePath": "staticwebassets\\js\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\fullcalendar.js",
+      "PackagePath": "staticwebassets\\js\\fullcalendar.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\gulpfile.js",
+      "PackagePath": "staticwebassets\\js\\gulpfile.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jQuery-gRating.js",
+      "PackagePath": "staticwebassets\\js\\jQuery-gRating.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jQuery-gRating.min.js",
+      "PackagePath": "staticwebassets\\js\\jQuery-gRating.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui-sliderAccess.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui-sliderAccess.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui-timepicker-addon-i18n.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui-timepicker-addon-i18n.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui-timepicker-addon.css",
+      "PackagePath": "staticwebassets\\js\\jquery-ui-timepicker-addon.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui-timepicker-addon.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui-timepicker-addon.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-ui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jstars.js",
+      "PackagePath": "staticwebassets\\js\\jstars.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\jstars.min.js",
+      "PackagePath": "staticwebassets\\js\\jstars.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\temp\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\temp\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\moment.min.js",
+      "PackagePath": "staticwebassets\\temp\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\toastr.css",
+      "PackagePath": "staticwebassets\\temp\\toastr.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\toastr.js.map",
+      "PackagePath": "staticwebassets\\temp\\toastr.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\toastr.min.css",
+      "PackagePath": "staticwebassets\\temp\\toastr.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Kuca\\Desktop\\NBP MongoDb\\Organizuj-Proslavu-master\\Organizuj-Proslavu-master\\OrganizujProslavu\\wwwroot\\temp\\toastr.min.js",
+      "PackagePath": "staticwebassets\\temp\\toastr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.OrganizujProslavu.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.OrganizujProslavu.props",
+      "PackagePath": "build\\OrganizujProslavu.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.OrganizujProslavu.props",
+      "PackagePath": "buildMultiTargeting\\OrganizujProslavu.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.OrganizujProslavu.props",
+      "PackagePath": "buildTransitive\\OrganizujProslavu.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

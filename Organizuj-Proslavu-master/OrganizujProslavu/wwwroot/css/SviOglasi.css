@@ -1,0 +1,106 @@
+.card
+{
+    width: 18rem; 
+    margin:auto;
+}
+.col-lg-4
+{
+    margin-bottom: 30px;
+}
+.search{
+    width: 150px;
+}
+.card-img-top
+{
+    height: 250px;
+}
+#TipOglasa
+{
+    width: 200px;
+    margin-right: 15px;
+}
+#SortirajPo
+{
+    width: 200px; 
+}
+.filter
+{
+    display: flex;
+}
+.form-control{
+    margin-right: 15px;
+}
+.text-dark{
+    text-decoration: none !important;
+}
+.card-title, .desc{
+    color: #8c8c8c;
+}
+.desc{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.more-btn{
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-top: 1px solid #DFDFDF;
+    padding: 10px;
+    transition: 0.2s;
+}
+.more-btn:hover{
+    background: #8c8c8c;
+    color: white;
+}
+.sadrzaj{
+    padding: 25px 0 45px 0;
+}
+h1{
+    color: #cacaca;
+    font-weight: 100;
+    font-family: Roboto;
+}
+.delete{
+    background: none;
+    border: 1px solid #DC3545;
+    border-radius: 5px;
+    position: absolute;
+    top: 260px;
+    right: 15px;
+    color: #DC3545;
+    transition: 0.2s;
+}
+.delete:hover{
+    background: #DC3545;
+    color: white;
+}
+.obavestenje{
+    font-family: Roboto !important;
+    font-size: 36px;
+    font-weight: 100;
+    text-align: center;
+    padding-top: 160px;
+}
+@media only screen and (max-width: 590px){
+    .lista-oglasa{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .sadrzaj h1{
+        padding-left: 10px;
+    }
+    #TipOglasa{
+        margin-right: 5px;
+        margin-left: 10px;
+        width: 100px;
+    }
+    .form-control{
+        margin-right: 5px;
+    }
+    .btn{
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.row {
+
+}
+
+  p {display: inline !important;}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    margin-top: -50px;
+    color: white !important;
+    background: #2222225b;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-right: 30px;
+    top:250px;
+    padding: 5px;
+  }
+  
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #8c8c8c;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    padding: 5px;
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+.naslov-oglasa{
+  margin: 0;
+  font-family: Roboto;
+  font-weight: 400;
+}
+.tip-oglasa{
+  padding-left: 15px;
+  color: #8c8c8c;
+  font-weight: 100;
+  font-style: italic;
+}
+.thumbnails{
+  padding-left: 10px;
+}
+.col-sm-4{
+  color: #585858;
+  font-family: Roboto;
+  font-weight: 500;
+}
+#clanovibenda h6{
+  font-weight: 500;
+}
+.tabela{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+.tabela td{
+  padding-right: 15px;
+}
+.sadrzaj-kalendar{
+  border-top: 1px solid #E5E5E5;
+  margin-top: 2.5em;
+  padding: 1em 8em 5em 8em;
+}
+.sadrzaj-kalendar h3{
+  color: #585858;
+  text-align: center;
+  font-weight: 300;
+  font-size: 32px;
+}
+.fc-time
+{
+  display: none;
+}
+.fc-title
+{
+  font-weight: bold;
+}
+.fc-content
+{
+  text-align: center;
+}
+.form-control{
+  margin-bottom: 15px;
+}
+.termin, .rezervisi{
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 575px){
+  .col-sm-4{
+    text-align: center;
+    display: grid;
+  }
+  .tabela{
+    display: grid;
+    place-items: center;
+  }
+  .sadrzaj-kalendar{
+    padding: 1em 4em 5em 4em;
+  }
+  ul{
+    justify-self: center;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 1023px){
+  .sadrzaj-kalendar{
+    padding: 1em 4em 5em 4em;
+  }
+}

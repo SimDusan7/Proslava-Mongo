@@ -1,0 +1,15 @@
+.footer{
+    position: absolute;
+    background: white;
+    border-top: 1px solid black;
+}
+.footer-text{
+    display: grid;
+    place-items: center;
+    font-family: Roboto;
+    font-weight: 200;
+    font-style: italic;
+}
+#logoutForm{
+    display: grid;
+}

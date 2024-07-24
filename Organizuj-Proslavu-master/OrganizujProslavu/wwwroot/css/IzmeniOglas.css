@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.sadrzaj{
+    padding-bottom: 45px;
+}
+.container h1{
+    font-family: Roboto;
+    font-weight: 100;
+}
+.tip-oglasa{
+    font-size: 24px;
+    color: #8c8c8c;
+    font-weight: 100;
+    font-style: italic;
+}
+.thumbnails{
+    padding-left: 15px;
+}
+.delete{
+    background: none;
+    border: 1px solid #FF4949;
+    color: #FF4949;
+    transition: 0.2s;
+}
+.delete:hover{
+    background: #FF4949;
+    color: white;
+}
+.postavi{
+    background: none;
+    border: 1px solid  #212cc7;
+    color: #212cc7;
+    margin-right: 15px;
+    transition: 0.2s;
+}
+.postavi:hover{
+    background: #212cc7;
+    color: white;
+}
+.form-group label{
+    padding-top: 15px;
+}
+.form-control{
+    height: auto;
+    padding: 10px;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #ffffff;
+    opacity: 1;
+}
+.sacuvaj{
+    background: none;
+    border: 1px solid #1ECD97;
+    border-radius: 25px;
+    color: #1ECD97;
+    padding: 10px 25px 10px 25px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.sacuvaj:hover{
+    background: #1ECD97;
+    color: white;
+}

@@ -1,0 +1,647 @@
+﻿@page
+@model OrganizujProslavu.Pages.NapraviOglasModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/NapraviOglas.css">
+
+<div class="container sadrzaj">
+    <div class="row">
+        <h1>Napravite oglas</h1>
+    </div>
+    <div class="row">
+        <form id="MyForm" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="TipOglasa">Izaberite tip oglasa: </label>
+                <select class="form-control" asp-for="@Model.Oglas.TipOglasa" asp-items="@Model.TipOglasa" id="TipOglasa">
+                    <option value="" selected disabled hidden>Tip oglasa</option>
+                </select>
+            </div>
+            <div id="Vrh" style="display: none"></div>
+            <div id="Bend" style="display: none;">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Naziv: </label>
+                    <input type="text" class="form-control bend" asp-for="@Model.Oglas.Naziv" id="naziv">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Broj članova:</label>
+                    <input type="number" min="1" class="form-control bend" asp-for="@Model.Oglas.BrojClanova" id="brclanova">
+                    <button type="button" class="btn btn-outline-dark" value="CREATE" id="btnNoOfRec" style="margin-top: 5px;">Unesi clanove (opciono)</button>
+                </div>
+                <div id="ClanoviDiv">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Vrsta muzike:</label>
+                    <input type="text" class="form-control bend" asp-for="@Model.Oglas.VrstaMuzike" id="vrstamuzike">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Opis:</label>
+                    <textarea class="form-control bend" rows="3" asp-for="@Model.Oglas.Opis" id="opis"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Ulica i broj:</label>
+                    <input type="text" class="form-control bend" asp-for="@Model.Oglas.Adresa" id="adresa">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Grad:</label>
+                    <input type="text" class="form-control bend" asp-for="@Model.Oglas.Grad" id="grad">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                    <input type="number" class="form-control bend" asp-for="@Model.Oglas.BrojTelefona" id="broj">
+                </div>
+                <div class="form-group">
+                    Dodajte vase fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+            </div>
+            <div id="Restoran" style="display: none;">
+                <div class="form-group">
+                    <label for="naziv1">Naziv:</label>
+                    <input type="text" class="form-control restoran" asp-for="@Model.Oglas.Naziv" id="naziv1">
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Broj gosta:</label>
+                        <input type="number" min="0" class="form-control restoran" asp-for="@Model.Oglas.BrojGosta" id="brgosta1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Opis:</label>
+                        <textarea class="form-control" rows="3 restoran" asp-for="@Model.Oglas.Opis" id="opis1"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Adresa:</label>
+                        <input type="text" class="form-control restoran" asp-for="@Model.Oglas.Adresa" id="adresa1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Grad:</label>
+                        <input type="text" class="form-control restoran" asp-for="@Model.Oglas.Grad" id="grad1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme od:</label>
+                        <input type="number" min="0" max="23" class="form-control restoran" asp-for="@Model.Oglas.Od" id="od1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme do:</label>
+                        <input type="number" max="24" min="1" class="form-control restoran" asp-for="@Model.Oglas.Do" id="do1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                        <input type="number" class="form-control restoran" asp-for="@Model.Oglas.BrojTelefona" id="broj1">
+                    </div>
+
+                    <!-- Karakteristike -->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="wifi">
+                        <label class="custom-control-label" for="wifi">Wifi</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="klima">
+                        <label class="custom-control-label" for="klima">Klima</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="grejanje">
+                        <label class="custom-control-label" for="grejanje">Grejanje</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.BazenIsChecked" id="bazen">
+                        <label class="custom-control-label" for="bazen">Bazen</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.ParkingIsChecked" id="parking">
+                        <label class="custom-control-label" for="parking">Parking</label>
+                    </div>
+                    <div class="form-group">
+                        Dodajte vase fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+                </div>
+
+
+                <div id="Kafic" style="display: none;">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Naziv:</label>
+                        <input type="text" class="form-control kafic" asp-for="@Model.Oglas.Naziv" id="naziv2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Broj gosta:</label>
+                        <input type="number" min="0" class="form-control kafic" asp-for="@Model.Oglas.BrojGosta" id="brgosta2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Opis:</label>
+                        <textarea class="form-control kafic" rows="3" asp-for="@Model.Oglas.Opis" id="opis2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Adresa:</label>
+                        <input type="text" class="form-control kafic" asp-for="@Model.Oglas.Adresa" id="adresa2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Grad:</label>
+                        <input type="text" class="form-control kafic" asp-for="@Model.Oglas.Grad" id="grad2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme od:</label>
+                        <input type="number" min="0" max="23" class="form-control kafic" asp-for="@Model.Oglas.Od" id="od2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme do:</label>
+                        <input type="number" max="24" min="1" class="form-control kafic" asp-for="@Model.Oglas.Do" id="do2">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                        <input type="number" class="form-control kafic" asp-for="@Model.Oglas.BrojTelefona" id="broj2">
+                    </div>
+                    <!-- Karakteristike -->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="wifi1">
+                        <label class="custom-control-label" for="wifi1">Wifi</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="klima1">
+                        <label class="custom-control-label" for="klima1">Klima</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="grejanje1">
+                        <label class="custom-control-label" for="grejanje1">Grejanje</label>
+                    </div>
+                    <div class="form-group">
+                        Dodajte vase fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+                </div>
+                <div id="Igraonica" style="display: none;">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Naziv:</label>
+                        <input type="text" class="form-control igraonica" asp-for="@Model.Oglas.Naziv" id="naziv3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Broj dece:</label>
+                        <input type="number" min="0" class="form-control igraonica" asp-for="@Model.Oglas.BrojDece" id="brdece">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Opis:</label>
+                        <textarea class="form-control igraonica" rows="3" asp-for="@Model.Oglas.Opis" id="opis3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Adresa:</label>
+                        <input type="text" class="form-control igraonica" asp-for="@Model.Oglas.Adresa" id="adresa3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Grad:</label>
+                        <input type="text" class="form-control igraonica" asp-for="@Model.Oglas.Grad" id="grad3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme od:</label>
+                        <input type="number" min="0" max="23" class="form-control igraonica" asp-for="@Model.Oglas.Od" id="od3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme do:</label>
+                        <input type="number" max="24" min="1" class="form-control igraonica" asp-for="@Model.Oglas.Do" id="do3">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                        <input type="number" class="form-control igraonica" asp-for="@Model.Oglas.BrojTelefona" id="broj3">
+                    </div>
+                    <!-- Karakteristike -->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="wifi4">
+                        <label class="custom-control-label" for="wifi4">Wifi</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="klima2">
+                        <label class="custom-control-label" for="klima2">Klima</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="grejanje2">
+                        <label class="custom-control-label" for="grejanje2">Grejanje</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.PlayStationIsChecked" id="playstation">
+                        <label class="custom-control-label" for="playstation">PlayStation</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.PoligoniZaIgranjeIsChecked" id="poligoni">
+                        <label class="custom-control-label" for="poligoni">Poligoni za igranje</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.DrustveneIgreIsChecked" id="drustveneigre">
+                        <label class="custom-control-label" for="drustveneigre">Drustvene igre</label>
+                    </div>
+                    <div class="form-group">
+                        Dodajte vase fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+
+                </div>
+                <div id="Bar" style="display: none;">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Naziv:</label>
+                        <input type="text" class="form-control bar" asp-for="@Model.Oglas.Naziv" id="naziv4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Broj gosta:</label>
+                        <input type="number" min="0" class="form-control bar" asp-for="@Model.Oglas.BrojGosta" id="brgosta4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Opis:</label>
+                        <textarea class="form-control bar" rows="3" asp-for="@Model.Oglas.Opis" id="opis4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Adresa:</label>
+                        <input type="text" class="form-control bar" asp-for="@Model.Oglas.Adresa" id="adresa4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Grad:</label>
+                        <input type="text" class="form-control bar" asp-for="@Model.Oglas.Grad" id="grad4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme od:</label>
+                        <input type="number" min="0" max="23" class="form-control bar" asp-for="@Model.Oglas.Od" id="od4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme do:</label>
+                        <input type="number" max="24" min="1" class="form-control bar" asp-for="@Model.Oglas.Do" id="do4">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                        <input type="number" class="form-control bar" asp-for="@Model.Oglas.BrojTelefona" id="broj4">
+                    </div>
+                    <!-- Karakteristike -->
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="wifi2">
+                        <label class="custom-control-label" for="wifi2">Wifi</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="klima3">
+                        <label class="custom-control-label" for="klima3">Klima</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="grejanje3">
+                        <label class="custom-control-label" for="grejanje3">Grejanje</label>
+                    </div>
+                    <div class="form-group">
+                        Dodajte vase fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+                </div>
+                <div id="Kafana" style="display: none;">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Naziv:</label>
+                        <input type="text" class="form-control kafana" asp-for="@Model.Oglas.Naziv" id="naziv5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Broj gosta:</label>
+                        <input type="number" min="0" class="form-control kafana" asp-for="@Model.Oglas.BrojGosta" id="brgosta5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Opis:</label>
+                        <textarea class="form-control kafana" rows="3" asp-for="@Model.Oglas.Opis" id="opis5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Adresa:</label>
+                        <input type="text" class="form-control kafana" asp-for="@Model.Oglas.Adresa" id="adresa5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Grad:</label>
+                        <input type="text" class="form-control kafana" asp-for="@Model.Oglas.Grad" id="grad5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme od:</label>
+                        <input type="number" min="0" max="23" class="form-control kafana" asp-for="@Model.Oglas.Od" id="od5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Radno vreme do:</label>
+                        <input type="number" max="24" min="1" class="form-control kafana" asp-for="@Model.Oglas.Do" id="do5">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Kontakt telefon:</label>
+                        <input type="number" class="form-control kafana" asp-for="@Model.Oglas.BrojTelefona" id="broj5">
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.WifiIsChecked" id="wifi3">
+                        <label class="custom-control-label" for="wifi3">Wifi</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.KlimaIsChecked" id="klima4">
+                        <label class="custom-control-label" for="klima4">Klima</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.GrejanjeIsChecked" id="grejanje4">
+                        <label class="custom-control-label" for="grejanje4">Grejanje</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" asp-for="@Model.ParkingIsChecked" id="parking4">
+                        <label class="custom-control-label" for="parking4">Parking</label>
+                    </div>
+                    <div class="form-group">
+                        Dodajte vaše fotografije: <input type="file" multiple="multiple" name="photos" accept="image/*" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-outline-primary">Napravi oglas</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="~/temp/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function ()
+{
+    $('#TipOglasa').change(function()
+    {
+      $("option[value=" + this.value + "]", this)
+        .attr("selected", true).siblings()
+        .removeAttr("selected");
+
+        var selectItem = $(this).val();
+        if(selectItem =='Bend')
+        {
+            document.getElementById("Bend").style.display = "block";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var bendDiv = $('#Bend');
+            bendDiv.insertAfter(vrhDiv);
+
+             var r = document.querySelectorAll('.restoran, .kafic, .kafana, .igraonica, .bar');
+
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required"))
+              {
+                r[i].removeAttribute("required");
+
+              }
+
+            }
+
+            var r = document.getElementsByClassName("bend");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+
+
+            $("#btnNoOfRec").click(function()
+            {
+              $('#ClanoviDiv').empty();
+              var NoOfRec = $('#brclanova').val();
+
+              if(NoOfRec > 0)
+              {
+                createControl(NoOfRec);
+              }
+            });
+
+
+            function createControl(NoOfRec)
+            {
+              var tbl = "";
+
+              tbl = "<table>"+
+                "<tr>"+
+                  "<th>Ime i prezime</th>"+
+                  "<th>Instrument</th>"+
+                "</tr>";
+
+                for(var i=0; i<NoOfRec;i++)
+                {
+                  tbl+= "<tr>"+
+                    "<td>"+
+                     "<input type='text' name='ClanoviBenda["+i+"].Ime' />"+
+                    "</td>"+
+                    "<td>"+
+                      "<input type='text' name='ClanoviBenda["+i+"].Instrument' />"+
+                    "</td>"+
+                    "</tr>";
+                }
+                tbl+="</table>";
+                $('#ClanoviDiv').append(tbl);
+            }
+        }
+
+        else if(selectItem == 'Restoran')
+        {
+          $('#TipOglasa').val("Restoran");
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "block";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var restoranDiv = $('#Restoran');
+            restoranDiv.insertAfter(vrhDiv);
+
+            var r = document.querySelectorAll('.bend, .kafic, .kafana, .igraonica, .bar');
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required") == true)
+              {
+                r[i].removeAttribute("required");
+
+              }
+
+            }
+
+
+            var r = document.getElementsByClassName("restoran");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+
+        }
+        else if(selectItem == 'Kafana')
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "block";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var kafanaDiv = $('#Kafana');
+            kafanaDiv.insertAfter(vrhDiv);
+
+            var r = document.querySelectorAll('.restoran, .kafic, .bend, .igraonica, .bar');
+
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required") == true)
+              {
+                r[i].removeAttribute("required");
+
+              }
+
+            }
+
+            var r = document.getElementsByClassName("kafana");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+        }
+        else if(selectItem == 'Kafic')
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "block";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var kaficDiv = $('#Kafic');
+            kaficDiv.insertAfter(vrhDiv);
+
+            var r = document.querySelectorAll('.restoran, .bend, .kafana, .igraonica, .bar');
+
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required") == true)
+              {
+                r[i].removeAttribute("required");
+
+              }
+
+            }
+
+
+            var r = document.getElementsByClassName("kafic");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+        }
+        else if(selectItem == 'Igraonica')
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "block";
+            document.getElementById("Bar").style.display = "none";
+           var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var igraonicaDiv = $('#Igraonica');
+            igraonicaDiv.insertAfter(vrhDiv);
+
+            var r = document.querySelectorAll('.restoran, .kafic, .kafana, .bend, .bar');
+
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required") == true)
+              {
+                r[i].removeAttribute("required");
+              }
+
+            }
+
+
+            var r = document.getElementsByClassName("igroanica");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+        }
+        else if(selectItem == 'Bar')
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "block";
+            var input = document.getElementById("MyForm").reset();
+
+            var vrhDiv = $('#Vrh');
+            var barDiv = $('#Bar');
+            barDiv.insertAfter(vrhDiv);
+
+            var r = document.querySelectorAll('.restoran, .kafic, .kafana, .igraonica, .bend');
+
+            for(var i=0;i<r.length;i++)
+            {
+              if(r[i].hasAttribute("required") == true)
+              {
+                r[i].removeAttribute("required");
+
+              }
+
+            }
+
+
+            var r = document.getElementsByClassName("bar");
+            for(var i=0;i<r.length;i++)
+            {
+              r[i].setAttribute("required","true");
+            }
+
+
+        }
+        else if(selectItem == 'Izaberi')
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+
+        }
+        else
+        {
+            document.getElementById("Bend").style.display = "none";
+            document.getElementById("Restoran").style.display = "none";
+            document.getElementById("Kafana").style.display = "none";
+            document.getElementById("Kafic").style.display = "none";
+            document.getElementById("Igraonica").style.display = "none";
+            document.getElementById("Bar").style.display = "none";
+            var input = document.getElementById("MyForm").reset();
+        }
+    });
+});
+</script>
+

@@ -1,0 +1,79 @@
+﻿@page
+@model OrganizujProslavu.Pages.MojeRezervacijeModel
+@{
+    ViewData["Title"] = "Moje rezervacije";
+}
+<link rel="stylesheet" type="text/css" href="~/css/MojeRezervacije.css" />
+<link rel="stylesheet" href="~/temp/toastr.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,400&display=swap" rel="stylesheet">
+
+<div class="container">
+    <form method="post">
+        <h1 style="color: #cacaca; font-weight: 100; font-family: Roboto;"> Moje rezervacije</h1>
+        <hr>
+        @if (@Model.Rezervacije.Count == 0)
+        {
+            <a class="text-dark" asp-page="./Index">
+                <h5 class="obavestenje"> <ion-icon name="add-circle-outline"></ion-icon> Trenutno nemate rezervacija! Rezerviši oglas</h5>
+            </a>
+        }
+        <div class="row">
+            @foreach (var rezervacija in @Model.Rezervacije)
+            {
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <a class="text-dark" asp-route-Id="@rezervacija.Oglas.Id" asp-page="/ProfilOglasa"><h5 class="card-header">Rezervisan oglas: @rezervacija.NazivOglasa</h5></a>
+                            <div class="card-body">
+
+                                <h5 class="card-title">Datum: @rezervacija.Datum</h5>
+                                <p class="card-text">Tip proslave: @rezervacija.TipProslave</p>
+                                <p class="card-text">Broj gosta: @rezervacija.BrojGosta</p>
+                                @if (rezervacija.Opis != null)
+                                {
+                                    <p class="card-text">Opis: @rezervacija.Opis</p>
+                                }
+                                @if (rezervacija.Otkazana == true || rezervacija.OtkazanaV == true)
+                                {
+                                    <p class="card-text otkazano">OTKAZANO</p>
+                                    if (rezervacija.OtkazanaV == true && rezervacija.RazlogOtkaza != null)
+                                    {
+                                        <p class="card-text">Razlog otkazivanja: @rezervacija.RazlogOtkaza</p>
+                                    }
+                                }
+                                else @if (rezervacija.Otkazana == false && rezervacija.OtkazanaV == false)
+                                    {
+                                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#a_@rezervacija.Id">Otkazi rezervaciju</button>
+                                    }
+
+                                <!-- Modal box za otkazivanje rezervacije -->
+                                <div class="modal fade" id="a_@rezervacija.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Otkazite rezervaciju</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Da li želite da otkažete rezervaciju oglasa: @rezervacija.NazivOglasa?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Poništi</button>
+                                                <button type="submit" id="otkazibtn" class="btn btn-primary" id="Rezervacijabtn" asp-route-Id="@rezervacija.Id" asp-page-handler="OtkaziRezervaciju">Otkaži rezervaciju</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                
+            }
+        </div>
+    </form>
+</div>
+

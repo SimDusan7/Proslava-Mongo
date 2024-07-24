@@ -1,0 +1,114 @@
+﻿@page
+@model OrganizujProslavu.Areas.Identity.Pages.Account.IzmeniModel
+@{
+    var photoPath = "~/images/" + (Model.Korisnik.Slika ?? "Lice.png");
+
+    ViewData["Title"] = "Izmeni profil";
+}
+
+<link rel="stylesheet" href="~/temp/toastr.min.css">
+<link rel="stylesheet" href="~/css/IzmeniProfil.css" />
+
+<form method="post" enctype="multipart/form-data">
+    <div class="container">
+
+        <h1>Izmeni profil</h1>
+        <hr>
+        <div class="row">
+            <!-- left column -->
+            <div class="col-xl-3">
+                <div class="text-center">
+                    <img src="@photoPath" class="avatar img-circle" alt="avatar" asp-append-version="true" style=" border-radius: 5%; width: 260px; height:260px; padding-bottom:10px">
+                    <div class="custom-file" style="text-align:left; white-space:nowrap;">
+                        <input asp-for="Photo" class="custom-file-input form-control" />
+                        <label class="custom-file-label">Izaberite fotografiju...</label>
+                    </div>
+                    <a class="text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" asp-route-Id="@Model.Korisnik.Id"><button type="button" class="view-profile"><ion-icon name="search-circle-outline" style="font-size:18px;vertical-align:-3px;"></ion-icon> Pregled Profila</button></a>
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-xl-9 personal-info">
+
+                @* <input hidden asp-for="@Model.Input.Id" /> *@
+                <input hidden asp-for="@Model.Input.PhotoPath" />
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Korisničko ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.Username" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prezime:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.LastName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Grad:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.City">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Broj telefona:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.Input.PhoneNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Trenutna lozinka:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.TrenutnaLozinka">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nova lozinka:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.NovaLozinka">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Ponovi novu lozinka:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" asp-for="@Model.PonovoNovaLozinka">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"></label>
+                    <div class="col-lg-8">
+                        <button type="submit" id="button1" class="btn btn-primary">Sačuvaj</button>
+                        <span></span>
+                        <input type="reset" class="btn btn-default cancel" value="Otkaži">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</form>
+
+<script>
+  $(document).ready(function()
+  {
+    $('.custom-file-input').on("change", function ()
+    {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).next('.custom-file-label').html(fileName);
+    });
+  });
+</script>

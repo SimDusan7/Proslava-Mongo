@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OrganizujProslavu.Areas.Identity.Data
+@using System.Security.Claims
+
+@inject SignInManager<Korisnik> SignInManager
+@inject UserManager<Korisnik> UserManager
+
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil">Moj Profil</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-res" class="nav-link text-dark" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije">Moje Rezervacije</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi">Moji oglasi</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi">Napravi oglas</a>
+            </li>
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/Account/Izmeni" title="Izmeni profil">Moj Profil</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-res" class="nav-link text-dark" asp-area="" asp-route-Id="@UserManager.GetUserId(User)" asp-page="/MojeRezervacije" title="Moje rezervacije">Moje Rezervacije</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/OglasiKorisnika" title="Moji oglasi">Moji oglasi</a>
+            </li>
+            <li class="nav-item">
+                <a id="my-adv" class="nav-link text-dark" asp-area="" asp-page="/NapraviOglas" title="Napravi oglasi">Napravi oglas</a>
+            </li>
+            <li class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn logout">Odjavi se <ion-icon name="log-out-outline" style="font-size:18px;vertical-align:-4px;"></ion-icon></button>
+                </form>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link reg btn btn-outline-success" id="register" asp-area="Identity" asp-page="/Account/Register">Registruj se</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light btn btn-success" id="login" asp-area="Identity" asp-page="/Account/Login">Prijavi se</a>
+        </li>
+    }
+</ul>
